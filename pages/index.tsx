@@ -43,7 +43,7 @@ const Home: NextPage = () => {
       <main className="bg-zinc-900 text-zinc-300 px-48 py-6 flex flex-wrap m-auto">
         {videos.map((video) => (
           <div className="w-1/3 mb-3" key={video.id}>
-            <div className="w-96 overflow-hidden">
+            <div className="w-80 overflow-hidden">
               <img
                 className="hover:scale-110 ease-in-out duration-300"
                 src={`http://img.youtube.com/vi/${video.id}/mqdefault.jpg`}
