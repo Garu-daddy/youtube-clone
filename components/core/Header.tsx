@@ -1,6 +1,11 @@
 import Link from "next/link";
 
-import { MenuIcon, SearchIcon } from "@heroicons/react/outline";
+import {
+  MenuIcon,
+  SearchIcon,
+  BellIcon,
+  CameraIcon,
+} from "@heroicons/react/outline";
 import Logo from "./Logo";
 
 export default function Header() {
@@ -20,7 +25,7 @@ export default function Header() {
 
         <div className="flex items-center max-w-md w-full">
           <input
-            className="bg-zinc-900 border w-full border-zinc-600 px-1 py-1"
+            className="bg-zinc-900 border w-full border-zinc-600 px-1 py-1 focus:outline-none focus:border-blue-600"
             type="text"
             placeholder="Search"
           />
@@ -29,13 +34,21 @@ export default function Header() {
           </button>
         </div>
 
-        <button className="w-8 h-8 rounded-full overflow-hidden">
-          <img
-            src="/images/profile.jpg"
-            alt="profile icon"
-            className="w-full h-full"
-          />
-        </button>
+        <div className="space-x-8 items-center">
+          <button>
+            <BellIcon className="w-6 h-6" />
+          </button>
+          <button>
+            <CameraIcon className="w-6 h-6" />
+          </button>
+          <button className="w-8 h-8 rounded-full overflow-hidden">
+            <img
+              src="/images/profile.jpg"
+              alt="profile icon"
+              className="w-full h-full"
+            />
+          </button>
+        </div>
       </header>
     </>
   );
