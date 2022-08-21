@@ -42,7 +42,7 @@ const Home: NextPage = () => {
     <>
       <Seo title="Home" />
       <Header />
-      <section className="categories bg-zinc-900 justify-around max-w-6xl flex m-auto">
+      <section className="categories bg-zinc-900 max-w-6xl flex justify-around m-auto">
         {categories.map((category, index) => (
           <IndexBtn key={`category-${index}`} category={category} />
         ))}
