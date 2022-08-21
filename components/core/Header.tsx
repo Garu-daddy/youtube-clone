@@ -35,10 +35,10 @@ export default function Header() {
         </div>
 
         <div className="space-x-8 items-center">
-          <button>
+          <button className="md:hidden">
             <BellIcon className="w-6 h-6" />
           </button>
-          <button>
+          <button className="md:hidden">
             <CameraIcon className="w-6 h-6" />
           </button>
           <button className="w-8 h-8 rounded-full overflow-hidden">
