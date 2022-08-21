@@ -42,13 +42,13 @@ const Home: NextPage = () => {
     <>
       <Seo title="Home" />
       <Header />
-      <section className="categories bg-zinc-900 justify-around w-8/12 flex m-auto">
+      <section className="categories bg-zinc-900 justify-around max-w-6xl flex m-auto">
         {categories.map((category, index) => (
           <IndexBtn key={`category-${index}`} category={category} />
         ))}
       </section>
 
-      <main className="bg-zinc-900 text-zinc-300 px-48 py-6 flex flex-wrap m-auto">
+      <main className="bg-zinc-900 text-zinc-300 max-w-7xl py-6 flex flex-wrap m-auto">
         {videos.map((video) => (
           <div className="w-1/3 mb-3" key={video.id}>
             <div className="w-80 overflow-hidden">
