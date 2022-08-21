@@ -42,7 +42,7 @@ const Home: NextPage = () => {
     <>
       <Seo title="Home" />
       <Header />
-      <section className="categories bg-zinc-900 max-w-6xl flex justify-around m-auto">
+      <section className="categories md:flex-wrap bg-zinc-900 max-w-6xl flex justify-around m-auto">
         {categories.map((category, index) => (
           <IndexBtn key={`category-${index}`} category={category} />
         ))}
@@ -50,7 +50,7 @@ const Home: NextPage = () => {
 
       <main className="bg-zinc-900 text-zinc-300 max-w-7xl py-6 flex flex-wrap m-auto">
         {videos.map((video) => (
-          <div className="w-1/3 mb-3" key={video.id}>
+          <div className="sm:w-1/2 lg:w-full w-1/3 mb-3" key={video.id}>
             <div className="w-80 overflow-hidden">
               <img
                 className="hover:scale-110 ease-in-out duration-300"
