@@ -48,9 +48,9 @@ const Home: NextPage = () => {
         ))}
       </section>
 
-      <main className="bg-zinc-900 text-zinc-300 max-w-7xl py-6 flex flex-wrap m-auto">
+      <main className="bg-zinc-900 text-zinc-300 py-6 grid grid-cols-4 gap-4 md:grid-cols-2 xl:grid-cols-3 lg:grid-cols-1">
         {videos.map((video) => (
-          <div className="sm:w-1/2 lg:w-full w-1/3 mb-3" key={video.id}>
+          <div className="w-80 mb-3 mx-auto" key={video.id}>
             <div className="w-80 overflow-hidden">
               <img
                 className="hover:scale-110 ease-in-out duration-300"
