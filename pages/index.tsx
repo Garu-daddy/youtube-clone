@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import IndexBtn from "../components/Button";
 import Header from "../components/core/Header";
@@ -16,11 +17,12 @@ const categories = [
   "영화 프로그램",
 ];
 
-type Video = {
+export type Video = {
   id: string;
   snippet: {
     title: string;
     channelTitle: string;
+    thumbnails: { medium: { url: string } };
   };
 };
 
@@ -31,7 +33,7 @@ const Home: NextPage = () => {
     (async () => {
       const { items } = await (
         await fetch(
-          `https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&key=${process.env.NEXT_PUBLIC_YOUTUBE_API_KEY}`
+          `https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=20&key=${process.env.NEXT_PUBLIC_YOUTUBE_API_KEY}`
         )
       ).json();
       setVideos(items);
@@ -50,17 +52,21 @@ const Home: NextPage = () => {
 
       <main className="bg-zinc-900 text-zinc-300 py-6 grid grid-cols-4 gap-4 md:grid-cols-2 xl:grid-cols-3 lg:grid-cols-1">
         {videos.map((video) => (
-          <div className="w-80 mb-3 mx-auto" key={video.id}>
-            <div className="w-80 overflow-hidden">
-              <img
-                className="hover:scale-110 ease-in-out duration-300"
-                src={`http://img.youtube.com/vi/${video.id}/mqdefault.jpg`}
-                alt="video thumbnail"
-              />
-            </div>
-            <h3 className="overflow-hidden">{video.snippet.title}</h3>
-            <h2 className="text-zinc-500">{video.snippet.channelTitle}</h2>
-          </div>
+          <Link href={`/video/${video.id}`} key={video.id}>
+            <a>
+              <div className="w-80 mb-3 mx-auto">
+                <div className="w-80 overflow-hidden">
+                  <img
+                    className="hover:scale-110 ease-in-out duration-300"
+                    src={`http://img.youtube.com/vi/${video.id}/mqdefault.jpg`}
+                    alt="video thumbnail"
+                  />
+                </div>
+                <h3 className="overflow-hidden">{video.snippet.title}</h3>
+                <h2 className="text-zinc-500">{video.snippet.channelTitle}</h2>
+              </div>
+            </a>
+          </Link>
         ))}
       </main>
     </>
