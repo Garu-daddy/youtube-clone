@@ -26,7 +26,7 @@ export default function Results() {
           {videos.map((video) => (
             <Link href={`/video/${video.id.videoId}`} key={video.id.videoId}>
               <a>
-                <div className="px-32 mb-3 mx-auto flex">
+                <div className="px-32 mb-3 mx-auto flex min-w-fit">
                   <div className="w-80 overflow-hidden">
                     <img
                       className="hover:scale-110 ease-in-out duration-300"
@@ -34,11 +34,11 @@ export default function Results() {
                       alt="video thumbnail"
                     />
                   </div>
-                  <div className="ml-6">
+                  <div className="ml-6 md:text-xs">
                     <h3 className="overflow-hidden text-xl">
                       {video.snippet.title}
                     </h3>
-                    <h2 className="text-zinc-500 hover:text-zinc-100 transition ease-in-out 2s">
+                    <h2 className="text-zinc-500 hover:text-zinc-100 transition ease-in-out duration-200">
                       {video.snippet.channelTitle}
                     </h2>
                     <h2 className="text-zinc-500">
