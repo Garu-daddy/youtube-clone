@@ -22,7 +22,7 @@ export default function Results() {
       {loading && <div className="text-white">Loading...</div>}
       {videos && (
         <main className="bg-zinc-900 text-zinc-300 py-6">
-          <h2 className="px-32 mb-6">에 대한 검색결과</h2>
+          <h2 className="px-32 mb-6">{`"${router.query.id}" 에 대한 검색결과`}</h2>
           {videos.map((video) => (
             <Link href={`/video/${video.id.videoId}`} key={video.id.videoId}>
               <a>
