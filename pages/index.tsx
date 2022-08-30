@@ -23,6 +23,7 @@ export type Video = {
     title: string;
     channelTitle: string;
     thumbnails: { medium: { url: string } };
+    description: string;
   };
 };
 
