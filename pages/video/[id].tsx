@@ -1,21 +1,20 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { Video } from "..";
 import Header from "../../components/core/Header";
 import getDetail from "../../lib/get-detail";
 
 export default function VideoDetail() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
-  const [videoId, setVideoId] = useState("");
+  const [videoInfo, setVideoInfo] = useState<Video[]>([]);
 
   useEffect(() => {
     getDetail(router.query.id as string)
-      .then((data) => setVideoId(data))
+      .then((data) => setVideoInfo(data))
       .catch((err) => alert(err))
       .finally(() => setLoading(false));
   }, [router.query.id]);
-
-  console.log(videoId);
 
   return (
     <>
@@ -30,11 +29,17 @@ export default function VideoDetail() {
           ></iframe>
         </div>
 
-        <div className="w-3/4 p-5">
-          <h2 className="text-white">{}</h2>
-          <h3 className="text-white">Channel ID</h3>
-          <h4 className="text-white">Video Description</h4>
-        </div>
+        {videoInfo.map((video) => (
+          <div className="w-3/4 p-5" key={video.id}>
+            <h2 className="text-zinc-100 text-2xl">{video.snippet.title}</h2>
+            <h3 className="text-zinc-400 text-xl">
+              {video.snippet.channelTitle}
+            </h3>
+            <h4 className="text-zinc-400 text-xl">
+              {video.snippet.description}
+            </h4>
+          </div>
+        ))}
       </section>
     </>
   );
